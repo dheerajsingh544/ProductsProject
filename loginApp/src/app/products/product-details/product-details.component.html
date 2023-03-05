@@ -1,0 +1,18 @@
+
+<div class="container">
+    <div class="wrapper">
+      <div><img  class="banner-image" 
+        [src]="product.url" alt="{{product.name}}" ></div>
+      <h1> {{product?.name}}</h1>
+      <p><b>{{product?.heading}}</b> <br/>
+        {{product?.description}}<br/> Stock: {{product?.stock}} <br/>
+     Expiry Date: {{product?.expiryDate}}</p>
+     </div>
+     <div class="button-wrapper"> 
+        <a (click)="onEditProduct()"><button class="btn outline" *ngIf="settingEdit">Edit</button></a>
+     <!-- <button class="btn outline">DETAILS</button> -->
+     <a (click)="removeProduct()"><button class="btn fill" *ngIf="settingRemove">Remove</button></a>
+       <!-- <button class="btn fill">BUY NOW</button> -->
+     </div>
+       </div>
+

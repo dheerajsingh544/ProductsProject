@@ -1,0 +1,66 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<div class="testbox">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="banner">
+            <h1>Create Product</h1>
+        </div>
+        <br />
+        <div class="item">
+            <label for="fname">Product Id<span>*</span></label>
+            <input type="number" formControlName="pid" />
+            <label *ngIf="productForm.get('pid').invalid && productForm.get('pid').touched"
+                style="color:red ;font-size: 10px;">Please provide unique product ID</label>
+        </div>
+
+        <div class="item">
+            <label for="fname">Product Name<span>*</span></label>
+            <input id="fname" type="text" formControlName="name" />
+            <label *ngIf="productForm.get('name').invalid && productForm.get('name').touched"
+                style="color:red ;font-size: 10px;">Name is too long</label>
+        </div>
+        <div class="item">
+            <label for="activity">Stock<span>*</span></label>
+            <input id="stock" type="number" formControlName="stock" />
+            <label *ngIf="productForm.get('stock').invalid && productForm.get('stock').touched"
+                style="color:red ;font-size: 10px;">Stock required</label>
+
+        </div>
+        <div class="item">
+            <label for="bdate">Expiry Date<span>*</span></label>
+            <input id="bdate" type="text" formControlName="expiryDate" />
+            <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+            <label *ngIf="productForm.get('expiryDate').invalid && productForm.get('expiryDate').touched"
+                style="color:red ;font-size: 10px;">expiryDate required</label>
+        </div>
+        <div class="item">
+            <label for="fname">Heading</label>
+            <input id="fname" type="text" formControlName="heading" />
+        </div>
+        <div class="item">
+            <label for="fname">Description</label>
+            <input id="fname" type="textarea" formControlName="description" />
+            <label *ngIf="productForm.get('name').invalid && productForm.get('description').touched"
+                style="color:red ;font-size: 10px;">Name is too long</label>
+        </div>
+        <div class="item">
+            <label for="fname">Product Image URL</label>
+            <input id="fname" type="text" formControlName="imageUrl" />
+        </div>
+        <div class="item">
+            <label >Min Days to deliver</label>
+            <input type="date" />
+        </div>
+        <div class="item">
+            <label >Max Days to deliver</label>
+            <input type="date" />
+        </div>
+        <div>
+            <button class="btn-block" type="submit" [disabled]="productForm.invalid">Save</button>
+        </div>
+        <div>
+            <button class="btn-block" type="cancel" href="/" style="background-color: red;">Cancel</button>
+        </div>
+    </form>
+</div>

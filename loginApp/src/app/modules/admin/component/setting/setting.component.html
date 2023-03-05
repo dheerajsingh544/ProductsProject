@@ -1,0 +1,27 @@
+
+<h1 style="margin-left: 35%;">Setting Window</h1>
+<form [formGroup]="settingForm" (ngSubmit)="onSubmit()">
+<div class="checkBody">
+<div>
+    <input  type="checkbox"  formControlName="allowCreateProduct"/>
+    <label  >  Create Product</label>
+  </div>
+  
+  <div>
+    <input  type="checkbox"  formControlName="allowEdit"/>
+    <label>  Allow Edit</label>
+  </div>
+  <div>
+    <input  type="checkbox"  formControlName="allowProductSearch"/>
+    <label>  Allow product search</label>
+  </div>
+  <div>
+    <input  type="checkbox"  formControlName="allowDelete"/>
+    <label>  Allow Delete</label>
+  </div>
+</div>
+<div class="btn">
+<button type="submit">Save</button>
+<button style="margin-left: 16px;" (click)="reset()">Reset</button>
+</div>
+</form>

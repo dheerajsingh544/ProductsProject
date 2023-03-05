@@ -1,0 +1,40 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<div class="testbox">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="banner">
+            <h1>Quick Create Product</h1>
+        </div>
+        <br />
+        <div class="item">
+            <label for="fname">Product Id<span>*</span></label>
+            <input type="number" formControlName="pid" />
+            <label *ngIf="productForm.get('pid').invalid && productForm.get('stock').touched" style="color:red ;font-size: 10px;">Please provide unique product ID</label>
+        </div>
+            <div class="item">
+                <label for="fname">Product Name<span>*</span></label>
+                <input id="fname" type="text" formControlName="name" />
+                <label *ngIf="productForm.get('name').invalid && productForm.get('name').touched" style="color:red ;font-size: 10px;">either your Name is too long or you haven't entered</label>
+            </div>
+            <div class="item">
+                <label for="activity">Stock<span>*</span></label>
+                <input id="stock" type="number" formControlName="stock" />
+                <label *ngIf="productForm.get('stock').invalid && productForm.get('stock').touched" style="color:red ;font-size: 10px;">Stock required</label>
+           
+            </div>
+            <div class="item">
+                <label for="bdate">Expiry Date<span>*</span></label>
+                <input id="bdate" type="text" formControlName="expiryDate" />
+                <label *ngIf="productForm.get('expiryDate').invalid && productForm.get('expiryDate').touched" style="color:red ;font-size: 10px;">expiryDate required</label>
+                <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                
+            </div>
+            <div >
+                <button class="btn-block" type="submit" href="/" [disabled]="productForm.invalid">Save</button>
+            </div>
+            <div>
+                <button  class="btn-block" type="cancel" href="/" style="background-color: red;">Cancel</button>
+            </div>
+    </form>
+</div>

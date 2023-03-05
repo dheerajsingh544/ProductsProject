@@ -1,0 +1,15 @@
+<div class="loginBox" style="margin-top: 30px;"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+    <h3 style="color: rgb(255, 255, 255);">Log in here</h3>
+    <form (ngSubmit)="userLogin()">
+        <div class="inputBox">
+             <input 
+             required
+             [(ngModel)]="user.userId"
+             type="text"  name="Username" id="userId" placeholder="Username"> 
+             <input 
+             required
+             [(ngModel)]="user.password" 
+             type="password" name="Password" id="password" placeholder="Password"> 
+            </div> <input type="submit" name="" value="Login">
+    </form> 
+</div>

@@ -1,0 +1,56 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<div class="testbox">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="banner">
+            <h1>Edit Product</h1>
+        </div>
+        <br />
+                <label *ngIf="productForm.get('name').invalid && productForm.get('name').touched" style="color:red ;font-size: 10px;">Name is too long</label>
+            <div class="item">
+                <label for="activity">Stock<span>*</span></label>
+                <input  type="number" formControlName="stock" />
+                <label *ngIf="productForm.get('stock').invalid && productForm.get('stock').touched"
+                style="color:red ;font-size: 10px;">Stock required</label>
+            </div>
+            <div class="item">
+                <label >Name<span>*</span></label>
+                <input  type="text" formControlName="name" />
+                <label *ngIf="productForm.get('name').invalid && productForm.get('name').touched" style="color:red ;font-size: 10px;">Name is too long</label>
+     
+            </div>
+            <div class="item">
+                <label >pid<span>*</span></label>
+                <input type="number" formControlName="pid" [disabled]="true" style="cursor: not-allowed;"/>
+            </div>
+            <div class="item">
+                <label >Description<span>*</span></label>
+                <input  type="text" formControlName="description" />
+                <label *ngIf="productForm.get('description').invalid && !productForm.get('description').touched"
+                style="color:red ;font-size: 10px;">Description is too long</label>
+            </div>
+            <div class="item">
+                <label>Title<span>*</span></label>
+                <input type="text" formControlName="title" />
+                <label *ngIf="productForm.get('title').invalid && productForm.get('title').touched"
+                style="color:red ;font-size: 10px;">Heading required</label>
+            </div>
+            <div class="item">
+                <label>URL<span>*</span></label>
+                <input type="text" formControlName="imageUrl" />
+                <label *ngIf="productForm.get('imageUrl').invalid && productForm.get('imageUrl').touched"
+                style="color:red ;font-size: 10px;">url required</label>
+            </div>
+            <div class="item">
+                <label>Expiry Date<span>*</span></label>
+                <input  type="text" formControlName="expiryDate" />
+                <i class="fas fa-calendar-alt" style="margin-right: 10px;"></i>
+                <label *ngIf="productForm.get('expiryDate').invalid && !productForm.get('expiryDate').touched"
+                style="color:red ;font-size: 10px;">expiryDate required</label>
+            </div>
+            <div >
+                <button class="btn-block" type="submit" [disabled]="productForm.invalid || !productForm.touched">Save</button>
+            </div>
+    </form>
+</div>

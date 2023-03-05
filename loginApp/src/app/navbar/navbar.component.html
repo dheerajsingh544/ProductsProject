@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right" style="margin-top: 25px; color: rgb(151, 152, 152);">
+            <li *ngIf="isLoggedIn" style="margin-right: 20px;"><span class="glyphicon glyphicon-user"></span> {{userName |uppercase}} <br><span>({{userRole|uppercase}})</span></li>
+        </ul>
+        <!-- <ul class="nav navbar-nav navbar-right" style="margin-top: 10px;">
+            <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> User Login</a></li>
+        </ul> -->
+        <ul class="nav navbar-nav navbar-right" style="margin-top: 10px;">
+            <li><a *ngIf="isLoggedIn" (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-left">  
+                <div id="mySidebar" class="sidebar">
+                    <a class="closebtn" (click)="closeNav()">×</a>
+                    <a routerLink="/product" style="font-size: medium;">Home</a>
+                    <a routerLink="/QuickCreate" style="font-size: medium;" *ngIf="settingCreate">Quick Create Product</a>
+                    <a routerLink="/createProduct" style="font-size: medium;" *ngIf="settingCreate">Create Product</a>
+                    <a *ngIf="isUserRole" routerLink="admin/setting" style="font-size: medium;">Setting</a>
+                  </div>
+                  
+                  <div id="main">
+                    <button class="openbtn" (click)="openNav()">☰</button>  
+                  </div>
+        </ul>
+    </div>
+    
+</nav>
