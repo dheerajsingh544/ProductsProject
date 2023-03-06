@@ -45,6 +45,7 @@ export class ServicesComponent implements OnInit {
     this.settingService.updateSetting(this.setting).subscribe((data) => {
       console.log("setting updated" + data);
     })
+    alert("setting updated!!!");
 
   }
   reset() {
@@ -54,6 +55,6 @@ export class ServicesComponent implements OnInit {
       allowDelete: new FormControl(false),
       allowProductSearch: new FormControl(true)
     });
-    
+    alert("setting is set to default");
   }
 }

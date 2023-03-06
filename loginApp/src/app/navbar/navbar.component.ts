@@ -75,11 +75,13 @@ fetchData(){
  this.settingService.getSetting().subscribe(res=>{
   this.data = JSON.parse(JSON.stringify(res));
   console.log("get setting data" + JSON.stringify(res));
-  if(this.userRole=="user")
-  {this.settingCreate=this.data["allowCreate"];}
-  else{
-    this.settingCreate=true;
-  }
+//  if(this.userRole=="user")
+ // {
+    this.settingCreate=this.data["allowCreate"];
+  //}
+  // else{
+  //   this.settingCreate=true;
+  // }
 
  });
 }
