@@ -46,6 +46,7 @@ export class ServicesComponent implements OnInit {
       console.log("setting updated" + data);
     })
     alert("setting updated!!!");
+   this.route.navigate(['/product']);
 
   }
   reset() {
